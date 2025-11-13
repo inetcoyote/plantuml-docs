@@ -1,0 +1,13 @@
+{
+  "name": "plantuml-docs",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "devDependencies": {
+    "markdown-cli": "^1.0.0"
+  },
+  "dependencies": {
+    "plantuml": "^1.5.0"
+  }
+}
