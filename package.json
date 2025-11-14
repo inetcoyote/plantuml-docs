@@ -8,6 +8,6 @@
     "markdown-cli": "^1.0.0"
   },
   "dependencies": {
-    "plantuml": "^1.5.0"
+    "plantuml-encoder": "^1.4.0"
   }
 }
