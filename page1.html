@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSV Reader</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+<style>
+table {
+border-collapse: collapse;
+width: 100%;
+margin-top: 20px;
+}
+th, td {
+border: 1px solid #ddd;
+padding: 8px;
+text-align: left;
+}
+th {
+background-color: #f2f2f2;
+}
+</style>
+</head>
+<body>
+
+<h1>CSV Reader</h1>
+<input type="file" id="csvFileInput" accept=".csv" />
+<table id="dataTable"></table>
+
+<script>
+document.getElementById('csvFileInput').addEventListener('change', function(event) {
+const file = event.target.files[0];
+
+if (file) {
+const reader = new FileReader();
+reader.onload = function(e) {
+const contents = e.target.result;
+// Парсинг CSV с помощью PapaParse
+Papa.parse(contents, {
+header: true,
+dynamicTyping: true,
+complete: function(results) {
+displayData(results.data);
+}
+});
+};
+reader.readAsText(file);
+}
+});
+
+function displayData(data) {
+const table = document.getElementById('dataTable');
+table.innerHTML = ''; // Очистить предыдущие данные
+
+// Создать заголовки таблицы
+const headerRow = document.createElement('tr');
+Object.keys(data[0]).forEach(key => {
+const th = document.createElement('th');
+th.textContent = key;
+headerRow.appendChild(th);
+});
+table.appendChild(headerRow);
+
+// Добавить строки данных
+data.forEach(row => {
+const tableRow = document.createElement('tr');
+Object.values(row).forEach(value => {
+const td = document.createElement('td');
+td.textContent = value;
+tableRow.appendChild(td);
+});
+table.appendChild(tableRow);
+});
+}
+</script>
+<a href="page2.html">вторая страница</a>
+</body>
+</html>
