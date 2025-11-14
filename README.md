@@ -1,20 +1,12 @@
 # plantuml-docs
 
-## диаграмма uml
-### Диаграмма 2
+код для отображения на сайте
 
-```plantuml
-@startuml
-Алиса -> Боб: Привет!
-Боб --> Алиса: Здравствуй!
-@enduml
+https://inetcoyote.github.io/plantuml-docs/
 
-@startuml
-class User {
-  +String name
-  +login()
-}
-class AuthService
-User --> AuthService: использует
-@enduml
-```
+нужно писать в файле src/index.md в основной ветке main
+
+сайт отображается из ветки gh-pages на странице index.html
+
+(настройки в .github/workflows/build.yml)
+
