@@ -27,7 +27,11 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs
+          # Добавь эту строку:
+          allow_empty_commit: true
+          # И эту — чтобы копировать СОДЕРЖИМОЕ, а не папку:
+          publish_branch: gh-pages
+          force_orphan: false
