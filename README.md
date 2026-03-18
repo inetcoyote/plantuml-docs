@@ -1,12 +1,10 @@
 # plantuml-docs
 
-код для отображения на сайте
+Адрес сайта с UML диаграммами - https://inetcoyote.github.io/plantuml-docs/
 
-https://inetcoyote.github.io/plantuml-docs/
+Код UML диграмм находится в файле src/index.md, в основной ветке main
 
-нужно писать в файле src/index.md в основной ветке main
-
-сайт отображается из ветки gh-pages на странице index.html
+Сайт отображается из ветки gh-pages на странице index.html, генерируется автоматически после push в main на основе скрипта build.js
 
 (настройки в .github/workflows/build.yml)
 
